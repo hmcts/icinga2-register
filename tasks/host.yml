@@ -1,0 +1,9 @@
+---
+- name: "Add host to Icinga2"
+  icinga2_host:
+    url: "{{ icinga_api_url }}"
+    url_username: "{{ icinga_api_user }}"
+    url_password: "{{ icinga_api_password }}"
+    name: "{{ inventory_hostname }}"
+    ip: "{{ ansible_default_ipv4.address }}"
+    state: present

@@ -1,0 +1,7 @@
+icinga2_services:
+  - display_name: http
+    check_name: http
+  - display_name: https
+    check_name: http
+    variables:
+       http_ssl: 1

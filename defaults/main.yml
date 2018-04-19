@@ -1,0 +1,10 @@
+# Common services we need on all nodes.
+icinga2_common_services:
+   - display_name: SSH
+     check_name: ssh
+   - display_name: PING
+     check_name: ping4
+
+# Services specific to this node or node type. Override in ansible-management
+# or in <project name>-ansible etc repos.
+icinga2_services: []

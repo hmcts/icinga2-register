@@ -1,0 +1,9 @@
+---
+- name: Ensure a version of python is installed so library files work.
+  yum:
+    name: "python"
+    state: present
+
+- include: host.yml
+
+- include: services.yml

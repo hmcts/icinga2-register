@@ -1,0 +1,20 @@
+---
+- name: "Add common services to host in Icinga2"
+  icinga2_service:
+    url: "{{ icinga2_api_url }}"
+    url_username: "{{ icinga2_api_user }}"
+    url_password: "{{ icinga2_api_password }}"
+    display_name: "{{ item.display_name }} service"
+    name: "{{ inventory_hostname }}!{{ item.check_name }}"
+    state: present
+  with_items: icinga2_common_services
+
+- name: "Add checks to specific host services in Icinga2"
+  icinga2_service:
+    url: "{{ icinga2_api_url }}"
+    url_username: "{{ icinga2_api_user }}"
+    url_password: "{{ icinga2_api_password }}"
+    display_name: "{{ item.display_name }} service"
+    name: "{{ inventory_hostname }}!{{ item.check_name }}"
+    state: present
+  with_items: icinga2_services

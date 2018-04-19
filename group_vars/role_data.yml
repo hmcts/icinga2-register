@@ -1,0 +1,7 @@
+icinga2_services:
+  - display_name: SSH
+    check_name: ssh
+    variables:
+      postgres_dbname = "POSTGRES_DBNAME_CHANGE_ME"
+      postgres_dbuser = "POSTGRES_USER_CHANGE_ME"
+      postgres_action = "locks"

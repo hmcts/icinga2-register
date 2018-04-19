@@ -1,0 +1,27 @@
+---
+dependency:
+  name: galaxy
+
+driver:
+  name: docker
+
+docker:
+  containers:
+    - name: icinga-role-old_config-${BRANCH_NAME}-${BUILD_NUMBER}
+      dockerfile: tests/dockerfiles/oldconfig.dockerfile
+      image: centos/systemd
+      image_version: latest
+      build_image: yes
+      privileged: yes
+      cap_add:
+        - SYS_ADMIN
+      environment:
+        http_proxy: ${http_proxy}
+        https_proxy: ${https_proxy}
+        no_proxy: ${no_proxy}
+verifier:
+  name: testinfra
+
+ansible:
+  playbook: tests/playbook.yml
+  extra_vars: placeholder=doorstop
